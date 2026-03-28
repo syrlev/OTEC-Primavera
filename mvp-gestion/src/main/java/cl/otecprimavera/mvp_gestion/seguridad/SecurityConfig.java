@@ -13,28 +13,37 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(auth -> auth
-            	.requestMatchers("/", "/login", "/api/**", "/css/**").permitAll()
+                .requestMatchers("/", "/login", "/css/**", "/js/**", "/images/**").permitAll()
                 .requestMatchers("/admin/**").hasRole("ADMIN")
                 .requestMatchers("/estudiante/**").hasRole("ESTUDIANTE")
                 .anyRequest().authenticated()
             )
-            .formLogin(form -> form
+            .formLogin(login -> login
                 .loginPage("/login")
-                .defaultSuccessUrl("/dashboard", true)
+                .successHandler((request, response, authentication) -> {
+                    for (var auth : authentication.getAuthorities()) {
+                        if (auth.getAuthority().equals("ROLE_ADMIN")) {
+                            response.sendRedirect("/admin");
+                            return;
+                        } else if (auth.getAuthority().equals("ROLE_ESTUDIANTE")) {
+                            response.sendRedirect("/estudiante");
+                            return;
+                        }
+                    }
+                    response.sendRedirect("/");
+                })
                 .permitAll()
             )
-            .logout(logout -> logout
-                    .logoutSuccessUrl("/")
-                    .permitAll()
-                );
-        return http.build();
-    }
+            .logout(logout -> logout.logoutSuccessUrl("/login?logout").permitAll());
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        return http.build();
     }
 }
