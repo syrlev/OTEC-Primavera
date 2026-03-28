@@ -1,0 +1,61 @@
+
+
+* {
+    background-color: transparent !important;
+}
+
+html, body {
+    background: radial-gradient(circle at 20% 30%, #BFE7FF 0%, #0078D7 40%, #00A8E8 70%, #66CC33 130%) !important;
+    background-attachment: fixed !important;
+    margin: 0;
+    padding: 0;
+}
+
+.bg-light, .bg-white, .card, .card-body {
+    background-color: transparent !important;
+}
+body {
+    background: radial-gradient(circle at 20% 30%, #BFE7FF 0%, #0078D7 40%, #00A8E8 70%, #66CC33 130%) !important;
+    background-attachment: fixed !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+}
+
+.aero-card {
+    background: rgba(255, 255, 255, 0.25) !important;
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.3), inset 0 1px 1px rgba(255,255,255,1), inset 0 -1px 5px rgba(255,255,255,0.3) !important;
+    border-radius: 8px;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+}
+
+.btn-glossy {
+    background: linear-gradient(to bottom, #a4e585 0%, #61c431 49%, #46aa15 50%, #2f8009 100%) !important;
+    border: 1px solid #1c4d05 !important;
+    border-radius: 5px;
+    color: white !important;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.7);
+    box-shadow: inset 0px 1px 0px rgba(255,255,255,0.9), inset 0px -10px 15px rgba(255,255,255,0.2), 0px 3px 5px rgba(0,0,0,0.4) !important;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.btn-glossy:hover {
+    background: linear-gradient(to bottom, #b4ef99 0%, #76d447 49%, #55ba22 50%, #3e9e10 100%) !important;
+}
+
+.btn-glossy-blue {
+    background: linear-gradient(to bottom, #8ec8f6 0%, #469cf2 49%, #1f7cd9 50%, #0d5ea6 100%) !important;
+    border: 1px solid #06396b !important;
+    border-radius: 5px;
+    color: white !important;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.7);
+    box-shadow: inset 0px 1px 0px rgba(255,255,255,0.9), inset 0px -10px 15px rgba(255,255,255,0.2), 0px 3px 5px rgba(0,0,0,0.4) !important;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.btn-glossy-blue:hover {
+    background: linear-gradient(to bottom, #a7d6fa 0%, #63abf5 49%, #348ee5 50%, #1770c1 100%) !important;
+}
