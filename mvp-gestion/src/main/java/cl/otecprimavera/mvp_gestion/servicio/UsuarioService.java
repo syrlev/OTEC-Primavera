@@ -5,6 +5,7 @@ import cl.otecprimavera.mvp_gestion.repositorio.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
+import java.util.List;
 
 @Service
 public class UsuarioService {
@@ -18,5 +19,12 @@ public class UsuarioService {
 
     public Usuario save(Usuario usuario) {
         return usuarioRepository.save(usuario);
+    }
+    public List<Usuario> findByRol(String rol) {
+        return usuarioRepository.findByRol(rol);
+    }
+
+    public Optional<Usuario> findById(Long id) {
+        return usuarioRepository.findById(id);
     }
 }

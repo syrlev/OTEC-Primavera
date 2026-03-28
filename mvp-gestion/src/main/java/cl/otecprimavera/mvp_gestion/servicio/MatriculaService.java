@@ -1,5 +1,6 @@
 package cl.otecprimavera.mvp_gestion.servicio;
 
+import cl.otecprimavera.mvp_gestion.modelo.Curso;
 import cl.otecprimavera.mvp_gestion.modelo.Matricula;
 import cl.otecprimavera.mvp_gestion.modelo.Usuario;
 import cl.otecprimavera.mvp_gestion.repositorio.MatriculaRepository;
@@ -25,7 +26,15 @@ public class MatriculaService {
         return matriculaRepository.findByEstudiante(estudiante);
     }
 
+    public List<Matricula> findByCurso(Curso curso) {
+        return matriculaRepository.findByCurso(curso);
+    }
+
     public Matricula findById(Long id) {
         return matriculaRepository.findById(id).orElse(null);
+    }
+
+    public void deleteById(Long id) {
+        matriculaRepository.deleteById(id);
     }
 }
